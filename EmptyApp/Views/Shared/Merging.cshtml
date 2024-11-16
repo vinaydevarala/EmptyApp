@@ -1,0 +1,37 @@
+﻿@model MergingtwoModels
+@{
+    Animals animals = new Animals
+            {
+                AnimalName = "vinay",
+                Id = 1
+            };
+}
+<partial name="_PartialView" model=animals />
+@await Component.InvokeAsync("MyFirst",new{id=5})
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Animal Id</th>
+                <th>Animal Name</th>
+                <th>Animal Description</th>
+                <th>CareTaker ID</th>
+                <th>CareTaker Name</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                <tr>
+                    <td>@Model?.Animal?.Id</td>
+                    <td>@Model?.Animal?.AnimalName</td>
+                    <td>@Model?.Animal?.Description</td>
+                    <td>@Model?.Student?.Id</td>
+                    <td>@Model?.Student?.Name</td>
+                </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-info" id="All-Details" type="button">Click To See All Animals Data</button>
+    <div id="Data">
+
+    </div>
+    <script src="~/JavaScript.js"></script>

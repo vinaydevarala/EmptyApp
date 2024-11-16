@@ -1,0 +1,31 @@
+﻿#Navbar {
+    display: block; /* Make #Navbar a flex container */
+    justify-content: space-between; /* Space items evenly, but first and last align to edges */
+    align-items: center; /* Vertically center the items */
+    background-color: #333; /* Dark background for navbar */
+    padding: 10px 20px; /* Padding around the navbar */
+}
+
+    #Navbar p {
+        display: flex; /* Make <p> a flex container */
+        background-color: aqua; /* Background color for the <p> tag */
+        padding: 10px;
+        align-items: center; /* Vertically center the content inside <p> */
+        justify-content: center; /* Horizontally center the content inside <p> */
+        color: black; /* Text color for <p> */
+        margin: 10; /* Remove margin for <p> to avoid extra space */
+    }
+
+    #Navbar a {
+        text-decoration: none; /* Remove underline from links */
+        padding: 10px 20px; /* Padding inside the link */
+        color: white; /* Default link color */
+        font-size: 16px; /* Font size for links */
+        border-radius: 5px; /* Optional: round the corners of the links */
+        transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+        #Navbar a:hover {
+            background-color: #555; /* Darken background on hover */
+            color: #fff; /* Ensure the text stays white on hover */
+        }

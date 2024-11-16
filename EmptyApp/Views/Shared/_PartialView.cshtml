@@ -1,0 +1,21 @@
+﻿@model Animals
+<div>
+    <h1>my partial view</h1>
+    <ul>
+    @{
+        var v = (List<Animals>)ViewData["namesi"];
+    }
+    @foreach (var item in v=new List<Animals>())
+    {
+        <li>@item.AnimalName</li>       
+    }
+    <span>Title:</span><p>@ViewBag.Title</p>
+    </ul>
+    @if(Model is not null)
+    {
+        <ol>
+            <li>@Model.AnimalName</li>
+            <li>@Model.Id</li>
+        </ol>
+    }
+</div>

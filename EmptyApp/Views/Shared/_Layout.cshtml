@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/_Layout1.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="Navbar">
+        <p>My Web Page</p>
+        <a href="view">View</a>
+        <a href="Merge">Merge</a>
+    </div>
+
+    <!-- Main content area with scrolling -->
+    <main>
+        @RenderBody()
+    </main>
+    <div>
+        @RenderSection("myNewSection",false)
+    </div>
+</body>
+</html>

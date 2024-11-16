@@ -1,0 +1,37 @@
+﻿@model List<Animals>;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+  @{  
+        await Html.RenderPartialAsync("_PartialView",model:Model[0]);}
+    
+    <table border="1">
+            <thead>
+                <tr>
+                    <th>Animal Id</th>
+                    <th>Animal Name</th>
+                    <th>Animal Description</th>
+                    <th>Suggestion</th>
+                </tr>
+            </thead>
+            <tbody>
+      @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.AnimalName</td>
+                    <td>@item.Description</td>
+                </tr>
+            }
+          
+        
+            </tbody>
+        </table>
+    </body>
+</html>

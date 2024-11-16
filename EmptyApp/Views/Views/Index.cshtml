@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    Animals animals = new Animals
+            {
+                Id = 1,
+                AnimalName = "tiger"
+
+            };
+    List<Animals> list = (List<Animals>)ViewData["namesi"];
+}
+@functions{
+    string DisplaySuggestion(Animals animals)
+    {
+        if (animals.AnimalName == "Lion")
+        {
+            return "this is Very Dangerious";
+        }
+        else
+        {
+            return "Not dangerous";
+        }
+
+    }
+}
+<partial name="_PartialView" />
+<h2>Checking Razor View</h2>  
+        <fieldset>
+        <legend> Animal Data</legend>
+        <dl>
+            <dt>Animal Id</dt>
+            <dd>@animals.Id</dd>
+            <dt>Animal Name</dt>
+            <dd>@animals.AnimalName</dd>
+        </dl>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Animal Id</th>
+                    <th>Animal Name</th>
+                    <th>Animal Description</th>
+                    <th>Suggestion</th>
+                    <td>details Link</td>
+                </tr>
+            </thead>
+            <tbody>
+               
+                @foreach(var animas in list)
+                {
+                    <tr>
+                        <td>@animas.Id</td>
+                        <td>@animas.AnimalName</td>
+                        <td>@animas.Description</td>
+                        <td>@DisplaySuggestion(animas)</td>
+                        <td><a href="/stronglytyped/@animas.AnimalName">Click Here</a></td>
+                    </tr>
+                }
+                <p>this is an viewbag</p>
+                @foreach (var animas in ViewBag.Animals)
+                {
+                    <tr>
+                        <td>@animas.Id</td>
+                        <td>@animas.AnimalName</td>
+                        <td>@animas.Description</td>
+                        <td>@DisplaySuggestion(animas)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+       @section myNewSection{
+        @if (list.Count < 1)
+    {
+        <text>Static Text Using text Element</text>
+        <br />
+        @:Static text using literal
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Animal Id</th>
+                    <th>Animal Name</th>
+                    <th>Animal Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < 1; i++)
+                {
+                    Animals animals1 = list[i];
+                    <tr>
+                        <td>@animals1.Id</td>
+                        <td>@animals1.AnimalName</td>
+                        <td>@animals1.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        @* string alert = $"<script>alert('always list contains only 1 but the list count is {list.Count}')</script>";
+    @Html.Raw(alert); *@
+        <span>List of Animals is Less Than 1</span>
+    }
+       };
+    </fieldset>

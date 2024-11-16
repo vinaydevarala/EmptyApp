@@ -1,0 +1,25 @@
+﻿@model List<Animals>
+<div>
+    @foreach (var item in Model)
+    {
+        <div>
+            <table border="1">
+                <thead>
+                   <tr>
+                        <th>Animal ID</th>
+                        <th>Animal Name</th>
+                        <th>Animal Description</th>
+                   </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.AnimalName</td>
+                        <td>@item.Description</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    }
+</div>
